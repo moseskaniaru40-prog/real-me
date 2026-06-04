@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mones Shop Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
+
+/* Container */
+.container{
+  width:90%;
+  max-width:1000px;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+
+/* Cart */
+.cart-box{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:white;
+  color:black;
+  padding:8px 15px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+/* Grid Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+/* Card */
+.card{
+  background:rgba(255,255,255,0.1);
+  border-radius:15px;
+  padding:10px;
+}
+
+/* FIXED IMAGE SIZE */
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.price{
+  margin:10px 0;
+  color:#00ffb3;
+}
+
+button{
+  background:#0072ff;
+  color:white;
+  border:none;
+  padding:10px;
+  width:100%;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#00c6ff;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="cart-box" onclick="orderNow()">
+🛒 Cart: <span id="cartCount">0</span>
+</div>
+
+<h2>Welcome to Mones Shop</h2>
+
+<p style="margin-top:10px; font-size:14px; line-height:1.6; color:#ddd;">
+🛍️ <b>How to Order:</b><br>
+1. Click <b>"Add to Cart"</b> on the items you want.<br>
+2. Check your cart at the top right (🛒).<br>
+3. Click the <b>Cart</b> or WhatsApp button.<br>
+4. WhatsApp will open with your order.<br>
+5. Press <b>Send</b> to confirm your order.
+</p>
+<br> </br>
+
+<div class="container">
+
+<div class="cart-box" onclick="orderNow()">
+🛒 Cart: <span id="cartCount">0</span>
+</div>
+
+<h2 id="welcome">Welcome to Mones Shop</h2>
+
+<div class="gallery">
+
+<!-- PRODUCTS -->
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518">
+  <h3>Cool T-Shirts</h3>
+  <div class="price">Ksh 500</div>
+  <button onclick="addToCart('Cool T-Shirts',500)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+  <h3>Modern Shoes</h3>
+  <div class="price">Ksh 1500</div>
+  <button onclick="addToCart('Modern Shoes',1500)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
+  <h3>Fashion Jackets</h3>
+  <div class="price">Ksh 2000</div>
+  <button onclick="addToCart('Fashion Jackets',2000)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://res.cloudinary.com/fashinza-com/image/upload/f_auto,q_auto,w_auto,c_scale/v1666183840/26_13455_1666183833475.jpg">
+  <h3>Fashion Shorts</h3>
+  <div class="price">Ksh 1000</div>
+  <button onclick="addToCart('Fashion shorts',1000)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://www.store333.com/wev/wp-content/uploads/2021/01/239501-4.jpg">
+  <h3>Fashion Dress</h3>
+  <div class="price">Ksh 2500</div>
+  <button onclick="addToCart('Fashion dresses',2500)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://i.pinimg.com/originals/1b/1c/b4/1b1cb41f12f07818bf09d7703386eff7.jpg">
+  <h3>Fashion Bags</h3>
+  <div class="price">Ksh 2000</div>
+  <button onclick="addToCart('Fashion bags',2000)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://media.istockphoto.com/photos/child-girl-cotton-bright-summer-clothes-set-collage-isolated-picture-id508756496?k=20&m=508756496&s=612x612&w=0&h=zN04iW81RatIZ1AaxFfegFyp2kvfxpyYS7ZRGOVuSgs=">
+  <h3>Fashion Kids Clothes</h3>
+  <div class="price">Ksh 3000</div>
+  <button onclick="addToCart('Fashion kids clothes',3000)">Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<!-- WhatsApp -->
+<a class="whatsapp-btn" id="whatsappLink" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCart(){
+  document.getElementById("cartCount").innerText = cart.length;
+  updateWhatsAppLink();
+}
+
+function addToCart(name, price){
+  cart.push({name, price});
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCart();
+  alert(name + " added to cart!");
+}
+
+function updateWhatsAppLink(){
+  let message = "Hello, I want to order:%0A";
+
+  cart.forEach((item, index)=>{
+    message += (index+1)+". "+item.name+" - Ksh "+item.price+"%0A";
+  });
+
+  let phone = "254715945898";
+
+  document.getElementById("whatsappLink").href =
+  "https://wa.me/" + phone + "?text=" + message;
+}
+
+function orderNow(){
+  document.getElementById("whatsappLink").click();
+}
+
+updateCart();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Boutique Login</title>
+
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family:Arial;
+background:url('modern-jacket-boutique-with-attractive-background-generated-by-ai_1020799-12370.jpg');
+
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:330px;
+box-shadow:0 0 25px rgba(0,0,0,0.3);
+}
+
+h2{color:#d63384;}
+
+input{
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:95%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Login / Sign Up</h2>
+
+<input type="text" id="user" placeholder="Username">
+
+<input type="password" id="pass" placeholder="Password">
+
+<button onclick="signup()">Create Account</button>
+
+<button onclick="login()">Login</button>
+
+<button onclick="forgot()">Forgot Password</button>
+
+</div>
+
+<script>
+
+function signup(){
+
+let user=document.getElementById("user").value;
+let pass=document.getElementById("pass").value;
+
+
+if(user=="" || pass==""){
+alert("Fill all fields!");
+return;
+}
+
+localStorage.setItem(user,pass);
+
+alert("Account Created Successfully!");
+
+}
+
+function login(){
+
+let user=document.getElementById("user").value;
+let pass=document.getElementById("pass").value;
+
+let saved=localStorage.getItem(user);
+
+if(saved===pass){
+
+alert("Login Successful!");
+
+window.location.href="main.html";
+
+}
+else{
+alert("Wrong Username or Password!");
+}
+
+}
+
+function forgot(){
+
+let user=document.getElementById("user").value;
+
+let saved=localStorage.getItem(user);
+
+if(saved){
+alert("Your password is: "+saved);
+}
+else{
+alert("Account not found!");
+}
+
+}
+
+</script>
+
+</body>
+</html>
